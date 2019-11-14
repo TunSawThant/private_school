@@ -207,18 +207,20 @@ bool _remember = true;
       ),
     ),
   );
-  Widget _singup()=>Padding(
-    padding: const EdgeInsets.only(top:8.0,left: 20.0),
-    child: Row(
-      children: <Widget>[
-        Text("Don\'t have an account ?",style: TextStyle(color: Colors.black,fontSize: 15),),
-        GestureDetector(
-          onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>null));
-          },
-            child: Text("Sing up",style: TextStyle(color: Colors.teal,fontSize: 20,fontWeight: FontWeight.bold),)),
-      ],
-      ),
+  Widget _singup()=>Expanded(
+    child: Padding(
+      padding: const EdgeInsets.only(top:8.0,left: 20.0),
+      child: Row(
+        children: <Widget>[
+          Text("Don\'t have an account ?",style: TextStyle(color: Colors.black,fontSize: 15),),
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>null));
+            },
+              child: Text("Sing up",style: TextStyle(color: Colors.teal,fontSize: 20,fontWeight: FontWeight.bold),)),
+        ],
+        ),
+    ),
   );
 
 Widget _btnsLogin()=>Expanded(
@@ -229,6 +231,8 @@ Widget _btnsLogin()=>Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisSize: MainAxisSize.max,
+
         children: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -238,7 +242,8 @@ Widget _btnsLogin()=>Expanded(
                width: MediaQuery.of(context).size.width*0.3,
                height: 1,
                color: Colors.black45,
-             ),),
+             ),
+           ),
               Text("Login with",style: TextStyle(color: Colors.black45),),
           SizedBox(
              child: Container(
@@ -248,64 +253,26 @@ Widget _btnsLogin()=>Expanded(
                 ),),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-                _btnwithFb(),
-                Expanded(
-                    flex: 1,
-                  child: Container(
+         Expanded(
+           child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                    _btnwithFb(),
+                  // Container(width: 2,),
+                  SizedBox(width: 2,),
+                    _btnwithGoogle()
+                ],
+              ),
+         ),
 
-                  ),
-                ),
-                _btnwithGoogle()
-            ],
-          )
         ],
       ),
     ) ,
 );
 
-Widget _btnwithFb()=>Expanded(
-  flex: 10,
-  child:   Container(
-  height: 50,
-  width: MediaQuery.of(context).size.width*0.35,
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(20),
-      boxShadow:<BoxShadow>[
-        BoxShadow(
-          offset: Offset(0, 3),
-          color: Colors.black12,
-          blurRadius: 6,
-        )
-      ]
-    ),
-    child:RaisedButton(
-        onPressed: (){},
-        shape:RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-          side: BorderSide(
-            color: Colors.blue,
-            width: 2.0,
-          )
-        ) ,
-        child: Row(
-          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Image.asset("images/facebook.png",width: 35,),
-            SizedBox(width: 5,),
-            Text("Facebook",style: TextStyle(color: Colors.blue,fontSize: 17),)
-          ],
-        )
-    ) ,
-  ),
-);
-
-Widget _btnwithGoogle()=>Expanded(
-  flex: 10,
+Widget _btnwithFb()=> Expanded(
   child:   Container(
 
     height: 50,
@@ -342,7 +309,7 @@ Widget _btnwithGoogle()=>Expanded(
 
             side: BorderSide(
 
-              color: Colors.red,
+              color: Colors.blue,
 
               width: 2.0,
 
@@ -352,25 +319,15 @@ Widget _btnwithGoogle()=>Expanded(
 
         child: Row(
 
-          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
           children: <Widget>[
 
-            Image.asset("images/google.png",width: 35,),
+            Image.asset("images/facebook.png",width: 35,),
 
             SizedBox(width: 5,),
 
-            Text("G",style: TextStyle(color: Colors.blue[600],fontSize: 17),),
-
-            Text("o",style: TextStyle(color: Colors.red[600],fontSize: 17),),
-
-            Text("o",style: TextStyle(color: Colors.yellow[900],fontSize: 17),),
-
-            Text("g",style: TextStyle(color: Colors.blue[600],fontSize: 17),),
-
-            Text("l",style: TextStyle(color: Colors.green,fontSize: 17),),
-
-            Text("e",style: TextStyle(color: Colors.red[600],fontSize: 17),),
+            Text("Facebook",style: TextStyle(color: Colors.blue,fontSize: 17),)
 
           ],
 
@@ -381,8 +338,111 @@ Widget _btnwithGoogle()=>Expanded(
   ),
 );
 
+Widget _btnwithGoogle()=>Expanded(
+  child:   Container(
+
+    height: 50,
+
+    width: MediaQuery.of(context).size.width*0.35,
+
+    decoration: BoxDecoration(
+
+        borderRadius: BorderRadius.circular(20),
+
+        boxShadow:<BoxShadow>[
+
+          BoxShadow(
+
+            offset: Offset(0, 3),
+
+            color: Colors.black12,
+
+            blurRadius: 6,
+
+          )
+
+        ]
+
+    ),
 
 
+
+    child:RaisedButton(
+
+        onPressed: (){},
+
+        shape:RoundedRectangleBorder(
+
+            borderRadius: BorderRadius.circular(20),
+
+            side: BorderSide(
+
+              color: Colors.red,
+
+              width: 2.0,
+
+            )
+
+        ) ,
+
+        child: Row(
+
+
+
+          mainAxisAlignment: MainAxisAlignment.center,
+
+
+
+          children: <Widget>[
+
+
+
+            Image.asset("images/google.png",width: 35,),
+
+
+
+            SizedBox(width: 5,),
+
+
+
+            Text("G",style: TextStyle(color: Colors.blue[600],fontSize: 17),),
+
+
+
+            Text("o",style: TextStyle(color: Colors.red[600],fontSize: 17),),
+
+
+
+            Text("o",style: TextStyle(color: Colors.yellow[900],fontSize: 17),),
+
+
+
+            Text("g",style: TextStyle(color: Colors.blue[600],fontSize: 17),),
+
+
+
+            Text("l",style: TextStyle(color: Colors.green,fontSize: 17),),
+
+
+
+            Text("e",style: TextStyle(color: Colors.red[600],fontSize: 17),),
+
+
+
+          ],
+
+
+
+        )
+
+
+
+    ) ,
+
+
+
+  ),
+);
 
   String  _validatorname(String value){
     if(value.isEmpty){
