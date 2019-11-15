@@ -169,6 +169,7 @@ bool _remember = true;
 
   Widget _btnLogin(){
     return Container(
+      height: 50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         boxShadow: <BoxShadow>[

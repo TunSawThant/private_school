@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:private_school/profilescreen/menuprofile.dart';
 
 import 'HomeScreen/home_screen.dart';
+import 'TestScreen/testScreen.dart';
 class BottomNavOwner extends StatefulWidget {
   @override
   _BottomNavOwnerState createState() => _BottomNavOwnerState();
@@ -59,7 +60,7 @@ class _BottomNavOwnerState extends State<BottomNavOwner> {
               body:TabBarView(
                   children: <Widget>[
                     HomeScreen(),
-                    Text("Welcome"),
+                    TestScreen(),
                     Text("Thanks u")
                   ]
               ) ,

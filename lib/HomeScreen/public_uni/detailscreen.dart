@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'about_screen.dart';
+import 'information.dart';
+
 class DetailsScreen extends StatefulWidget {
   String nameUniversity='';
   DetailsScreen(nameUniversity);
@@ -50,31 +53,34 @@ class _DetailsScreenState extends State<DetailsScreen> {
   Widget _tabwidget()=>Expanded(
     flex: 5,
     child: Container(
+      //height: 50,
+
       child: DefaultTabController(
           length: 2,
           child: Column(
             children: <Widget>[
               Container(
-                height: 50,
+                height: 40,
+                margin: EdgeInsets.only(left: 16,right: 16),
                 decoration: BoxDecoration(
                   border:Border.all(color: Colors.teal),
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10)
                 ),
                 child: TabBar(
-                  isScrollable: true,
+                  isScrollable: false,
                     unselectedLabelColor: Colors.black,
                     indicatorSize: TabBarIndicatorSize.tab,
                     indicator: BoxDecoration(
                       boxShadow: <BoxShadow>[
                         BoxShadow(
-                          color: Colors.teal,
+                          color: Colors.black12,
                           offset: Offset(3, 3),
                           blurRadius: 6,
                         )
                       ],
                       color:Colors.teal,
-                      borderRadius: BorderRadius.circular(10)
+                      borderRadius: BorderRadius.circular(6)
                     ),
                     tabs: [
                       Tab( child: Align(
@@ -93,8 +99,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
               Expanded(child: TabBarView(
                   children:<Widget>[
-                Text("Hello World"),
-                    Text("Welcome from Myanmar")
+                    InformationApp(),
+                    AboutScreen()
               ]))
             ],
           )

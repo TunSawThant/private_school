@@ -26,7 +26,7 @@ return Scaffold(
             ),
             GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>null));
+                //Navigator.push(context, MaterialPageRoute(builder: (context)=>null));
               },
               child: _subWidget("private@3x", "Private University", 80.0, 80.0),
             ),
@@ -37,13 +37,13 @@ return Scaffold(
           children: <Widget>[
             GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>null));
+                //Navigator.push(context, MaterialPageRoute(builder: (context)=>null));
               },
               child: _subWidget("location@3x", "Locations", 80.0, 80.0),
             ),
             GestureDetector(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>null));
+               // Navigator.push(context, MaterialPageRoute(builder: (context)=>null));
               },
               child: _subWidget("subject@3x", "Majors", 80.0, 80.0),
             ),
